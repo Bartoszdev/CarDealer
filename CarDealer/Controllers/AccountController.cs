@@ -17,9 +17,25 @@ namespace CarDealer.Controllers
             _signInManager = signInManager;
             _userManager = userManager;
         }
-        public IActionResult Login()
+        public IActionResult Register()
         {
-            return View();
+            return View(new LoginViewModel());
+        }
+        [HttpPost]
+        public async Task<IActionResult> Register(LoginViewModel loginViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new IdentityUser() { UserName = loginViewModel.UserName };
+                var result = await _userManager.CreateAsync(user, loginViewModel.Password);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+
+                }
+            }
+                return View(loginViewModel);
         }
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
@@ -38,9 +54,15 @@ namespace CarDealer.Controllers
                 }
                     
             }
-            
-                return View();
-            
+            ModelState.AddModelError("", "Nazwa użytkownika/hasło nie jest nie właściwe");
+            return View(loginViewModel);
         }
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }
