@@ -1,4 +1,5 @@
 ﻿using CarDealer.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,6 +17,10 @@ namespace CarDealer.Controllers
         {
             _signInManager = signInManager;
             _userManager = userManager;
+        }
+        public IActionResult Login()
+        {
+            return View();
         }
         public IActionResult Register()
         {

@@ -1,8 +1,10 @@
 ﻿using CarDealer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarDealer.Controllers
 {
+    [Authorize]
     public class OpinionController : Controller
     {
         private readonly IOpinionRepository _opinionRepository;
