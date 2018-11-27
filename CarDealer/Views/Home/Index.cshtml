@@ -1,13 +1,11 @@
 ﻿@model HomeViewModel
 
 
-
 <h2>@Model.Title</h2>
-
 
 @foreach (var car in Model.Cars)
 {
-    < <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="col-sm-4 col-lg-4 col-md-4">
         <div class="thumbnail">
             <img src="@car.UrlMiniature" alt="">
             <div class="caption">
@@ -23,9 +21,7 @@
                 </h4>
                 <h4>
                     Moc : @car.Power
-              
                 </h4>
-
                 <p>@car.Description</p>
             </div>
         </div>

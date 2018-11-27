@@ -2,15 +2,17 @@
 
 <h2> @Model.Brand - @Model.Model</h2>
 
-
 <div class="thumbnail">
-    <img alt="@Model.Brand" src="@Model.UrlPhoto"/>
+    <img alt="@Model.Brand" src="@Model.UrlPhoto" />
     <div class="caption-full">
-         <h3 class="pull-right"> @Model.Price</h3>
-    <h4>@Model.Year</h4>
-    <h4>@Model.Mileage</h4>
-    <h4>@Model.EngineCapacity</h4>
-    <h4>@Model.Power</h4>
-    <h4>@Model.Description</h4>
-         </div>
+        <h3 class="pull-right">@Model.Price</h3>
+        <h3>
+            <a href="#">@Model.Model</a>
+        </h3>
+        <h4>@Model.Year</h4>
+        <h4>@Model.Mileage</h4>
+        <h4>@Model.EngineCapacity</h4>
+        <h4>@Model.Power</h4>
+        <p>@Model.Description</p>
     </div>
+</div>
