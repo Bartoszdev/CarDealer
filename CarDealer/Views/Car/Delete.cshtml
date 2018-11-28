@@ -1,0 +1,29 @@
+﻿@model Car
+
+<div>
+    <div class="thumbnail">
+        <div class="row">
+            <div class="col-md-6">
+                <img alt="@Model.Brand" src="@Model.UrlPhoto" height="500" width="500" />
+            </div>
+            <div class="col-md-6">
+                <h3>@Model.Brand - @Model.Model</h3>
+                <h4>@Model.Price</h4>
+                <h4>@Model.Year</h4>
+                <h4>@Model.Mileage</h4>
+                <h4>@Model.EngineCapacity</h4>
+                <h4>@Model.Power</h4>
+                <p>@Model.Description</p>
+                <h2>Na pewno chcesz usunąć?</h2>
+                <h4 class="pull-right">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="UrlPhoto" />
+                        <input type="submit" value="Usuń" class="btn btn-success" />
+                        <a asp-action="Index" class="btn btn-success">Powrót</a>
+                    </form>
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>

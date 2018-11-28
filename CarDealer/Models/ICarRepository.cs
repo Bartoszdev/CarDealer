@@ -6,5 +6,9 @@ namespace CarDealer.Models
     {
         IEnumerable<Car> TakeAllCars();
         Car TakeCarById(int carId);
+
+        void AddCar(Car car);
+        void EditCar(Car car);
+        void DeleteCar(Car car);
     }
 }

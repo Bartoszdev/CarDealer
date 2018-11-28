@@ -11,7 +11,6 @@ namespace CarDealer.Models
         {
             _appDbContext = appDbContext;
         }
-
         public IEnumerable<Car> TakeAllCars()
         {
             return _appDbContext.Cars;
@@ -20,6 +19,23 @@ namespace CarDealer.Models
         public Car TakeCarById(int carId)
         {
             return _appDbContext.Cars.FirstOrDefault(s => s.Id == carId);
+        }
+        public void AddCar(Car car)
+        {
+            _appDbContext.Cars.Add(car);
+            _appDbContext.SaveChanges();
+        }
+
+        public void DeleteCar(Car car)
+        {
+            _appDbContext.Cars.Remove(car);
+            _appDbContext.SaveChanges();
+        }
+
+        public void EditCar(Car car)
+        {
+            _appDbContext.Cars.Update(car);
+            _appDbContext.SaveChanges();
         }
     }
 }
